@@ -2,21 +2,25 @@ li3_server: Booting Lithium from the CLI
 ========================================
 This plugin utilizes the new HTTP server integrated in PHP 5.4 and allows you to start your app from the command line, without the need for a server like Apache or Nginx.
 
+_Note that this is highly experimental and while it works, a lot of tests in `/test` seem to fail._
+
 Requirements
 ------------
-As mentioned above, you need PHP 5.4 to run this plugin.
+- PHP 5.4 as it introduces the new built-in HTTP server.
+- Lithium, of course.
 
 Installation
 ------------
-The easiest way to install `li3_server` is through composer:
+The easiest way to install `li3_server` is through [Composer](http://packagist.org/about-composer). 
 
-	todo.
+	I'll add a composer.json file as soon as the plugin works quite well! Pull it from GitHub in the meantime...
 
-Alternatively, you can install it directly from github:
+Alternatively, you can install it directly from GitHub:
 
-	todo.
+	$ cd libraries
+	$ git clone git://github.com/daschl/li3_server.git
 
-Now you need to add it to your Lithium bootstrap file (`app/config/bootstrap/libraries.php`):
+Now you need to add it to your Lithium bootstrap file (`config/bootstrap/libraries.php`):
 
 	Libraries::add('li3_server');
 
