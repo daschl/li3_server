@@ -13,9 +13,11 @@ use lithium\action\Request;
  * This filter fakes the `Request` object to the correct base so that everything
  * works as expected without .htaccess rewrite rules.
  */
-Dispatcher::applyFilter('run', function($self, $params, $chain) {
-	$params['request'] = new Request(array('base' => ''));
-	return $chain->next($self, $params, $chain);
-});
+if(PHP_SAPI == 'cli-server') {
+	Dispatcher::applyFilter('run', function($self, $params, $chain) {
+		$params['request'] = new Request(array('base' => ''));
+		return $chain->next($self, $params, $chain);
+	});
+}
 
 ?>
