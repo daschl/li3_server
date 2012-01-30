@@ -13,7 +13,11 @@ Installation
 ------------
 The easiest way to install `li3_server` is through [Composer](http://packagist.org/about-composer). 
 
-	I'll add a composer.json file as soon as the plugin works quite well! Pull it from GitHub in the meantime...
+	{
+		"require": {
+			"daschl/li3_server": "master"
+		}
+	}
 
 Alternatively, you can install it directly from GitHub:
 
