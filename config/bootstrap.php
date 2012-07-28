@@ -8,14 +8,23 @@
 
 use lithium\action\Dispatcher;
 use lithium\action\Request;
+use lithium\core\Environment;
 
 /**
  * This filter fakes the `Request` object to the correct base so that everything
  * works as expected without .htaccess rewrite rules.
  */
-if(PHP_SAPI == 'cli-server') {
+if (PHP_SAPI == 'cli-server') {
 	Dispatcher::applyFilter('run', function($self, $params, $chain) {
 		$params['request'] = new Request(array('base' => ''));
+
+		Environment::is(function($request) {
+		    if ($request->env('SERVER_NAME') == 'localhost') {
+		        return 'development';
+		    }
+		    return 'production';
+		});
+
 		return $chain->next($self, $params, $chain);
 	});
 }
