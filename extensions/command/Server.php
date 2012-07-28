@@ -11,24 +11,27 @@ namespace li3_server\extensions\command;
 class Server extends \lithium\console\Command {
 
 	public $php = 'php';
-	
+
 	public $host = 'localhost';
-	
+
 	public $port = '8000';
-	
+
 	public $webroot = null;
-	
+
+	public $router = null;
+
 	protected function _init() {
 		parent::_init();
 		$this->webroot = $this->webroot ?: LITHIUM_APP_PATH . '/webroot';
+		$this->router = $this->router ?: dirname(dirname(__DIR__)) . '/config/router.php';
 	}
-	
+
 	public function run() {
 		$this->header("Lithium Development Server");
-		
-		$cmd = "{$this->php} -S {$this->host}:{$this->port} -t {$this->webroot}";
-		
-		$this->out("Booting: $cmd"); 
+
+		$cmd = "{$this->php} -S {$this->host}:{$this->port} -t {$this->webroot} {$this->router}";
+
+		$this->out("Booting: $cmd");
 		$this->out("Starting on {$this->host}:{$this->port}...");
 		system($cmd);
 	}
