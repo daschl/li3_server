@@ -11,7 +11,7 @@ Requirements
 
 Installation
 ------------
-The easiest way to install `li3_server` is through [Composer](http://packagist.org/about-composer). 
+The easiest way to install `li3_server` is through [Composer](http://packagist.org/about-composer).
 
 	{
 		"require": {
@@ -45,6 +45,7 @@ You can also override the following settings:
 - --host: The hostname to which the server will listen. Defaults to `localhost`.
 - --port: The port on which the server will listen. Defaults to `8000`.
 - --webroot: A custom webroot. Defaults to `LITHIUM_APP_PATH/webroot`.
+- --router: A custom router script. Defaults to the provided one at `config/router.php`.
 
 If you are still running mainly PHP 5.3 and want to experiment with the server, you can do it like this:
 
