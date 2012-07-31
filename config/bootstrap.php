@@ -19,10 +19,21 @@ if (PHP_SAPI == 'cli-server') {
 		$params['request'] = new Request(array('base' => ''));
 
 		Environment::is(function($request) {
-		    if ($request->env('SERVER_NAME') == 'localhost') {
-		        return 'development';
-		    }
-		    return 'production';
+			$isLocal = in_array($request->env('SERVER_NAME'), array('localhost'));
+			switch (true) {
+				case (isset($request->env)):
+					return $request->env;
+				case ($isLocal):
+					return 'development';
+				case ($request->command == 'test'):
+					return 'test';
+				case (preg_match('/^test\//', $request->url) && $isLocal):
+					return 'test';
+				case (preg_match('/^test/', $request->env('HTTP_HOST'))):
+					return 'test';
+				default:
+					return 'production';
+			}
 		});
 
 		return $chain->next($self, $params, $chain);
