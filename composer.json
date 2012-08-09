@@ -1,5 +1,6 @@
 {
 	"name": "daschl/li3_server",
+  "type": "lithium-library",
 	"description": "Booting Lithium from the CLI.",
 	"homepage": "https://github.com/daschl/li3_server",
 	"authors": [{
@@ -7,8 +8,9 @@
 		"email": "michael@nitschinger.at",
 		"homepage": "http://nitschinger.at"
 	}],
-	
+
 	"require": {
-		"php": "5.4.*"
+		"php": "5.4.*",
+		"composer/installers": "dev-master"
 	}
 }
