@@ -29,7 +29,7 @@ class Server extends \lithium\console\Command {
 	public function run() {
 		$this->header("Lithium Development Server");
 
-		$cmd = "{$this->php} -S {$this->host}:{$this->port} -t {$this->webroot} {$this->router}";
+		$cmd = "{$this->php} -S {$this->host}:{$this->port} -t '{$this->webroot}' '{$this->router}'";
 
 		$this->out("Booting: $cmd");
 		$this->out("Starting on {$this->host}:{$this->port}...");
