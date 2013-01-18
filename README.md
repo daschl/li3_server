@@ -15,7 +15,7 @@ The easiest way to install `li3_server` is through [Composer](http://packagist.o
 
 	{
 		"require": {
-			"daschl/li3_server": "master"
+			"daschl/li3_server": "dev-master"
 		}
 	}
 
