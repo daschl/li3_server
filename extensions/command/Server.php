@@ -20,6 +20,8 @@ class Server extends \lithium\console\Command {
 
 	public $router = null;
 
+	public $env = 'development';
+
 	protected function _init() {
 		parent::_init();
 		$this->webroot = $this->webroot ?: LITHIUM_APP_PATH . '/webroot';
@@ -29,10 +31,10 @@ class Server extends \lithium\console\Command {
 	public function run() {
 		$this->header("Lithium Development Server");
 
-		$cmd = "{$this->php} -S {$this->host}:{$this->port} -t {$this->webroot} {$this->router}";
+		$cmd = "LITHIUM_ENV={$this->env} {$this->php} -d variables_order=EGPCS -S {$this->host}:{$this->port} -t {$this->webroot} {$this->router}";
 
 		$this->out("Booting: $cmd");
-		$this->out("Starting on {$this->host}:{$this->port}...");
+		$this->out("Starting in {$this->env} on {$this->host}:{$this->port}...");
 		system($cmd);
 	}
 
