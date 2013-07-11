@@ -37,7 +37,7 @@ Head to the command line and run it through `li3 server`.
 	Lithium Development Server
 	--------------------------------------------------------------------------------
 	Booting: php -S localhost:8000 -t /path/to/webroot
-	Starting on localhost:8000...
+	Starting in development on localhost:8000...
 
 You can also override the following settings:
 
@@ -46,6 +46,7 @@ You can also override the following settings:
 - --port: The port on which the server will listen. Defaults to `8000`.
 - --webroot: A custom webroot. Defaults to `LITHIUM_APP_PATH/webroot`.
 - --router: A custom router script. Defaults to the provided one at `config/router.php`.
+- --env: Lithium environment. Defaults to `development`
 
 If you are still running mainly PHP 5.3 and want to experiment with the server, you can do it like this:
 
@@ -54,4 +55,4 @@ If you are still running mainly PHP 5.3 and want to experiment with the server, 
 	Lithium Development Server
 	--------------------------------------------------------------------------------
 	Booting: /home/michael/Downloads/php-5.4.0RC6/sapi/cli/php -S localhost:8000 -t /home/michael/web/framework/app/webroot
-	Starting on localhost:8000...
+	Starting in development on localhost:8000...
